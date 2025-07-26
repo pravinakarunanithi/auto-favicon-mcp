@@ -1,0 +1,23 @@
+[project]
+name = "auto-favicon"
+version = "0.1.0"
+description = "MCP server for automatic favicon generation from images or URLs"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "mcp>=1.12.0",
+    "pillow>=10.0.0",
+    "requests>=2.31.0",
+    "aiohttp>=3.9.0",
+    "pathlib2>=2.3.7"
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
+
+[tool.uv]
+dev-dependencies = []
