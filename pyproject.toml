@@ -1,6 +1,6 @@
 [project]
 name = "auto-favicon"
-version = "1.0.0"
+version = "1.0.1"
 description = "A Model Context Protocol server providing tools for automatic favicon generation from PNG images or URLs"
 readme = "README.md"
 requires-python = ">=3.12"

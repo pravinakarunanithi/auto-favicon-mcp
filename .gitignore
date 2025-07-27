@@ -60,3 +60,7 @@ Thumbs.db
 
 # Docker
 .dockerignore 
+
+favicon/
+
+*.png
