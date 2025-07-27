@@ -25,6 +25,16 @@ ICO_SIZES = [16, 32, 48]
 APPLE_SIZES = [180, 152, 144, 120, 114, 76, 72, 60, 57]
 
 
+def validate_absolute_path(path: str, path_type: str) -> Path:
+    """Validate that a path is absolute and exists (for files) or can be created (for directories)."""
+    path_obj = Path(path)
+    
+    if not path_obj.is_absolute():
+        raise ValueError(f"{path_type} must be an absolute path: {path}")
+    
+    return path_obj
+
+
 def create_favicon_set(image_data: bytes, output_dir: str) -> Dict[str, Any]:
     """Create a complete favicon set from image data."""
     # Write image data to a temp file
@@ -102,20 +112,39 @@ async def generate_favicon_from_png(image_path: str, output_path: str) -> str:
     Generate a complete favicon set from a PNG image file.
 
     Args:
-        image_path: Path to the PNG image file.
-        output_path: Directory where favicon files will be generated.
+        image_path: Absolute path to the PNG image file.
+        output_path: Absolute path to the directory where favicon files will be generated.
     Returns:
         A message describing the generated files and output directory.
     """
     try:
-        with open(image_path, 'rb') as f:
+        # Validate absolute paths
+        image_path_obj = validate_absolute_path(image_path, "image_path")
+        output_path_obj = validate_absolute_path(output_path, "output_path")
+        
+        # Check if image file exists
+        if not image_path_obj.exists():
+            return f"Error: Image file does not exist: {image_path}"
+        
+        if not image_path_obj.is_file():
+            return f"Error: Path is not a file: {image_path}"
+        
+        # Check if output directory can be created
+        try:
+            output_path_obj.mkdir(parents=True, exist_ok=True)
+        except Exception as e:
+            return f"Error: Cannot create output directory {output_path}: {str(e)}"
+        
+        with open(image_path_obj, 'rb') as f:
             image_data = f.read()
-        result = create_favicon_set(image_data, output_path)
+        result = create_favicon_set(image_data, str(output_path_obj))
         return (
             f"Successfully generated favicon set!\n\n"
             f"Output directory: {result['output_directory']}\n"
             f"Generated files:\n" + "\n".join(f"- {f}" for f in result['generated_files'])
         )
+    except ValueError as e:
+        return f"Error: {str(e)}"
     except Exception as e:
         return f"Error generating favicon: {str(e)}"
 
@@ -127,24 +156,55 @@ async def generate_favicon_from_url(image_url: str, output_path: str) -> str:
 
     Args:
         image_url: URL of the image to download.
-        output_path: Directory where favicon files will be generated.
+        output_path: Absolute path to the directory where favicon files will be generated.
     Returns:
         A message describing the generated files and output directory.
     """
     try:
+        # Validate absolute path for output directory
+        output_path_obj = validate_absolute_path(output_path, "output_path")
+        
+        # Check if output directory can be created
+        try:
+            output_path_obj.mkdir(parents=True, exist_ok=True)
+        except Exception as e:
+            return f"Error: Cannot create output directory {output_path}: {str(e)}"
+        
         async with aiohttp.ClientSession() as session:
             async with session.get(image_url) as response:
                 response.raise_for_status()
                 image_data = await response.read()
-        result = create_favicon_set(image_data, output_path)
+        result = create_favicon_set(image_data, str(output_path_obj))
         return (
             f"Successfully downloaded image from {image_url} and generated favicon set!\n\n"
             f"Output directory: {result['output_directory']}\n"
             f"Generated files:\n" + "\n".join(f"- {f}" for f in result['generated_files'])
         )
+    except ValueError as e:
+        return f"Error: {str(e)}"
     except Exception as e:
         return f"Error generating favicon from URL: {str(e)}"
 
-if __name__ == "__main__":
+
+def main():
+    """MCP Auto Favicon Server - Automatic favicon generation functionality for MCP"""
+    import argparse
+
+    parser = argparse.ArgumentParser(
+        description="Generate favicons from PNG images or URLs"
+    )
+    parser.add_argument(
+        "--output-dir", 
+        type=str, 
+        default="./favicons",
+        help="Default output directory for generated favicons"
+    )
+
+    args = parser.parse_args()
+    
     # Initialize and run the server
     mcp.run(transport='stdio')
+
+
+if __name__ == "__main__":
+    main() 

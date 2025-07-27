@@ -11,26 +11,18 @@ An MCP (Model Context Protocol) server that automatically generates complete fav
 - **Apple Touch Icons**: Creates Apple-specific touch icons for iOS devices
 - **Web App Manifest**: Generates manifest.json for Progressive Web Apps
 
-## Setup
+## Installation & Usage
 
-1. Clone this repository:
-```bash
-git clone <repository-url>
-cd auto-favicon
-```
+### MCP Client Configuration
 
-2. Install dependencies:
-```bash
-uv sync
-```
+Add to your MCP client configuration:
 
-3. Add to your MCP client configuration:
 ```json
 {
   "mcpServers": {
     "favicon-generator": {
-      "command": "uv",
-      "args": ["run", "main.py"],
+      "command": "uvx",
+      "args": ["auto-favicon"],
       "env": {}
     }
   }
